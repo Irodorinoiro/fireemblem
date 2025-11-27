@@ -18,9 +18,9 @@ public:
 	GameManager() 
 	{
 		// Byleth_status (StatusList)  --> Character(status_ = Byleth_status, level_=1, exp_=0) --> characters[0]
-		StatusList Byleth_status = { "ベレス", 27, 13, 6, 9, 8, 8, 6, 6, 7};
-		StatusList Edelgard_status = { "エーデルガルト", 29, 13, 6, 5, 8, 5, 6, 4, 10};
-		StatusList Hubert_status = { "ヒューベルト", 22, 6, 12, 6, 7, 5, 4, 7, 6};
+		StatusList Byleth_status = { "ベレス", 27, 13, 6, 9, 8, 8, 6, 6, 7, 90};
+		StatusList Edelgard_status = { "エーデルガルト", 29, 13, 6, 5, 8, 5, 6, 4, 10, 86};
+		StatusList Hubert_status = { "ヒューベルト", 22, 6, 12, 6, 7, 5, 4, 7, 6, 75};
 
 		GrowthRate Byleth_growth = { 45, 45, 35, 45, 45, 45, 35, 30, 45 };
 		GrowthRate Edelgard_growth = { 40, 55, 45, 45, 40, 30, 35, 35, 60 };

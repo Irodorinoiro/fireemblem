@@ -87,10 +87,15 @@ void Button::FontDraw(int size, int x, int y, const char* sentence)
 	DrawFormatString(x, y, a, "%s", sentence);
 }
 
-void Button::push1()
+bool Button::IsPush()
 {
 	if (CheckHitKeyAll() != 0)
 	{
-
+		return pushed;
+	}
+	else
+	{
+		pushed = false;
+		return pushed;
 	}
 }

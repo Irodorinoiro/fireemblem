@@ -26,6 +26,7 @@ private:
 
 	unsigned int m_arrow_img;
 public:
+	bool pushed = true;
 	/// <summary>
 	/// カーソルの位置を設定する関数
 	/// </summary>
@@ -77,5 +78,9 @@ public:
 
 	void FontDraw(int size, int x, int y, const char* sentence);
 
-	void push1();
+	/// <summary>
+	/// ボタンが押されたかどうかを判定する関数
+	/// </summary>
+	/// <returns></returns>
+	bool IsPush();
 };

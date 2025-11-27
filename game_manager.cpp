@@ -41,6 +41,8 @@ int GameManager::Title()
 	Keyboard key_board;
 	//CharaMove chara_move;
 	Character character;
+	Button button;
+	StatusList statuslist;
 
 
 
@@ -60,17 +62,17 @@ int GameManager::Title()
 
 	start_button.SetOrder(0);
 	quit_button.SetOrder(1);
-
-	int time_count = 0;//OPに飛ぶため
-	//int a = chara_move.c_titleM;
-	//a = 0;
 	int x = 0, flag = 0; // title_illustの座標
 
 	while (ScreenFlip() == 0 && ProcessMessage() == 0 && ClearDrawScreen() == 0)
 	{
 		character.StatusOutput(characters, "ベレス");
-		character.LevelUp(characters, "ベレス");
+		character.LevelUp(character.pin_, character.rand_, characters, "ベレス", button);
 
+		DrawFormatString(100, 100, GetColor(WHITE), "rand = %d", character.rand_);
+		DrawFormatString(100, 150, GetColor(WHITE), "pin = %d", character.pin_);
+		DrawFormatString(100, 200, GetColor(WHITE), "level = %d", characters[0].level_);
+		DrawFormatString(100, 250, GetColor(WHITE), "total = %d", characters[0].status_.total_status);
 
 
 		key_board.GetKeyState();
