@@ -8,7 +8,6 @@
 #include "core.h"
 #include "button.h"
 //#include "background.h"
-#include "keyboard.h"
 //#include "Chara_Move.h"
 //#include "haikei_byoga.h"
 

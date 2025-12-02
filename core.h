@@ -58,6 +58,7 @@ enum Scene
 
 extern bool has_to_init; // 各シーンにおいて初期化する必要があるかどうか
 extern LPCSTR font_path; // フォントのパス
+extern int title_illust;
 
 /// <summary>
 /// エラー発生時にエラーボックスを表示する関数
@@ -66,9 +67,3 @@ extern LPCSTR font_path; // フォントのパス
 void errorBox(const std::string str);
 
 int gameInit();
-
-/// <summary>
-/// FPSを制御する関数
-/// </summary>
-/// <param name="fps">FPS</param>
-void FPS(const int fps);

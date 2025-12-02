@@ -4,6 +4,7 @@
 
 bool has_to_init = true;
 LPCSTR font_path = "SawarabiMincho-Regular.ttf";
+int title_illust;
 
 void errorBox(const std::string str)
 {
@@ -26,10 +27,12 @@ int gameInit()
 		return -1;
 	}
 
-	return 0;
-}
+	title_illust = LoadGraph("gazo_gamedx/title_illust.png");
+	if (title_illust == -1)
+	{
+		errorBox("‰æ‘œ‚Ì“Ç‚İ‚İ‚É—\Šú‚¹‚ÊƒGƒ‰[‚ª”­¶‚µ‚Ü‚µ‚½D");
+		return -1;
+	}
 
-void FPS(const int fps)
-{
-	WaitTimer(1000.0 / fps);
+	return 0;
 }

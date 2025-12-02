@@ -7,12 +7,6 @@ int ModeSelect::init()
 	if (has_to_init)
 	{
 		has_to_init = false;
-		m_title_illust = LoadGraph("gazo_gamedx/title_illust.png");
-		if (m_title_illust == -1)
-		{
-			errorBox("‰æ‘œ‚Ì“Ç‚İ‚İ’†‚É—\Šú‚¹‚ÊƒGƒ‰[‚ª”­¶‚µ‚Ü‚µ‚½D");
-			return -1;
-		}
 		m_cursor = 0;
 	}
 	return 0;

@@ -37,7 +37,7 @@ int WINAPI WinMain(HINSTANCE hinstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	if (gameInit() == -1)
 	{
 		errorBox("‰Šú‰»‚É—\Šú‚¹‚ÊƒGƒ‰[‚ª”­¶‚µ‚Ü‚µ‚½D");
-		return -1;
+		//return -1;
 	}
 
 	while (ProcessMessage() == 0)
