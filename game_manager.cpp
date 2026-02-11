@@ -315,40 +315,8 @@ int GameManager::Scene1()
 
 	start_button.SetOrder(0);
 
-	// hana 画像読み取り
+	// hana 画像読み取り[後で消す]
 	const int hana_1 = LoadGraph("gazo_gamedx/hana_front3.png");
-	const int hana_2 = LoadGraph("gazo_gamedx/hana_frontR.png");
-	const int hana_3 = LoadGraph("gazo_gamedx/hana_frontL.png");
-	const int hana_4 = LoadGraph("gazo_gamedx/hana_side3.png");
-	const int hana_5 = LoadGraph("gazo_gamedx/hana_side31.png");
-	const int hana_6 = LoadGraph("gazo_gamedx/hana_side32.png");
-	const int hana_7 = LoadGraph("gazo_gamedx/hana_back3.png");
-	const int hana_8 = LoadGraph("gazo_gamedx/hana_back31.png");
-	const int hana_9 = LoadGraph("gazo_gamedx/hana_back32.png");
-
-	// 背景画像読み取り
-	// const int serifubox = LoadGraph("gazo_gamedx/serifu.png");
-	const int haikei_1F = LoadGraph("gazo_gamedx/floor.png");
-	const int tile_blue = LoadGraph("gazo_gamedx/tile_1.png");
-	const int escalator1 = LoadGraph("gazo_gamedx/escalator1.png");
-	const int escalator2 = LoadGraph("gazo_gamedx/escalator2.webm");
-	const int window = LoadGraph("gazo_gamedx/window.png");
-	const int table_circle = LoadGraph("gazo_gamedx/table_circle.png");
-	const int table_front = LoadGraph("gazo_gamedx/table_front.png");
-
-	const int jozan = LoadGraph("gazo_gamedx/jozan.png");
-	const int zentai = LoadGraph("gazo_gamedx/zentai.png");
-	const int kabe = LoadGraph("gazo_gamedx/wall.png");
-	const int wood = LoadGraph("gazo_gamedx/wood.png");
-	const int noise = LoadGraph("gazo_gamedx/noise.png");
-	const int highlight = LoadGraph("gazo_gamedx/player_highlight.png");
-
-	PlayMovieToGraph(escalator2, DX_PLAYTYPE_LOOP);
-
-	//hana の初期位置とスピード
-	//chara_move.raw_moved_x = PLAYER_X;
-	//chara_move.raw_moved_y = PLAYER_Y;
-	//chara_move.player_speed = 0;
 
 	while (ScreenFlip() == 0 && ProcessMessage() == 0 && ClearDrawScreen() == 0)
 	{
