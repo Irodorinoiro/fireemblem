@@ -63,6 +63,8 @@ int GameManager::Title()
 	start_button.SetOrder(0);
 	quit_button.SetOrder(1);
 	int x = 0, flag = 0; // title_illustÇÃç¿ïW
+	int GHandle = LoadGraph("byleth.png");
+
 
 	while (ScreenFlip() == 0 && ProcessMessage() == 0 && ClearDrawScreen() == 0)
 	{
@@ -74,6 +76,7 @@ int GameManager::Title()
 		DrawFormatString(100, 200, GetColor(WHITE), "level = %d", characters[0].level_);
 		DrawFormatString(100, 250, GetColor(WHITE), "total = %d", characters[0].status_.total_status);
 
+		DrawGraph(500, 100, GHandle, FALSE);
 
 		key_board.GetKeyState();
 
