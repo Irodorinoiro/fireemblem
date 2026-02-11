@@ -1,4 +1,5 @@
-#pragma once
+#ifndef GAME_MANAGER_H
+#define GAME_MANEGER_H
 
 #include <iostream>
 #include <vector>
@@ -7,7 +8,6 @@
 #include "core.h"
 #include "button.h"
 //#include "background.h"
-#include "keyboard.h"
 //#include "Chara_Move.h"
 //#include "haikei_byoga.h"
 
@@ -30,12 +30,6 @@ public:
 		characters.emplace_back(Edelgard_status, Edelgard_growth);
 		characters.emplace_back(Hubert_status, Hubert_growth);
 	}
-
-	/// <summary>
-	/// オープニング画面の描画
-	/// </summary>
-	/// <returns>状態</returns>
-	int Opening();
 
 	/// <summary>
 	/// タイトルを制御する関数
@@ -69,3 +63,5 @@ public:
 
 	Character playable_character;
 };
+
+#endif // GAME_MANAGER_H
