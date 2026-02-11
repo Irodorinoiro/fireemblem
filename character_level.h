@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <vector>
+#include <array>
 #include <random>
 #include "DxLib.h"
 #include "core.h"
@@ -19,6 +20,7 @@ struct StatusList
 	unsigned char Res;
 	unsigned char Cha;
 	int total_status;
+	std::array<unsigned char, 9> values;
 };
 
 struct GrowthRate
