@@ -39,7 +39,15 @@
 
 #define CONFIRM z_is_pressed || enter_is_pressed
 
-#define SWITCH(c, a, b) c ? a : b
+#define SWITCH(c, a, b) if(c)\
+{\
+a;\
+}\
+else\
+{\
+b;\
+}\
+
 
 /// <summary>
 /// ゲームのシーンに関するenum
@@ -53,7 +61,8 @@ enum Scene
 	QUIT,
 	EXTRA,
 	SCENE1,
-	SCENE2
+	MAP,
+	ATTACK
 };
 
 extern bool has_to_init; // 各シーンにおいて初期化する必要があるかどうか
@@ -66,4 +75,14 @@ extern int title_illust;
 /// <param name="str">エラーメッセージ</param>
 void errorBox(const std::string str);
 
+/// <summary>
+/// FPSを制御する関数
+/// </summary>
+/// <param name="fps">FPS</param>
+void FPS(const int fps);
+
+/// <summary>
+/// ゲーム全体で使う変数等の初期化
+/// </summary>
+/// <returns></returns>
 int gameInit();

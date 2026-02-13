@@ -139,7 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="background.h" />
+    <ClInclude Include="attack.h" />
     <ClInclude Include="button.h" />
     <ClInclude Include="character_level.h" />
     <ClInclude Include="core.h" />
@@ -150,7 +150,7 @@
     <ClInclude Include="title.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="background.cpp" />
+    <ClCompile Include="attack.cpp" />
     <ClCompile Include="button.cpp" />
     <ClCompile Include="character_level.cpp" />
     <ClCompile Include="core.cpp" />

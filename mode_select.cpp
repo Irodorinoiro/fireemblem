@@ -24,7 +24,7 @@ void ModeSelect::update(Scene& scene)
 		if (m_cursor == 1)
 		{
 			has_to_init = true;
-			scene = Scene::EXTRA;
+			scene = Scene::ATTACK;
 		}
 		if (m_cursor == 2)
 		{
@@ -57,8 +57,8 @@ void ModeSelect::draw()
 	);
 	SWITCH(
 		m_cursor == 1,
-		DrawFormatString(100, 500, GetColor(255, 0, 0), "ボツ2"),
-		DrawFormatString(100, 500, GetColor(WHITE), "ボツ2")
+		DrawFormatString(100, 500, GetColor(255, 0, 0), "アタック"),
+		DrawFormatString(100, 500, GetColor(WHITE), "アタック")
 	);
 	SWITCH(
 		m_cursor == 2,

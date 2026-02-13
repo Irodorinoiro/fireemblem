@@ -8,11 +8,6 @@ int Title::init()
 		m_cursor = 0;
 
 		// 画像読み取り
-		background_atk = LoadGraph("background_attack.png");
-		if (background_atk == -1)
-		{
-			errorBox("[title.cpp][戦闘背景読み取り]");
-		}
 
 		StatusList Byleth_status = { "ベレス", 27, 13, 6, 9, 8, 8, 6, 6, 7, 90 };
 		StatusList Edelgard_status = { "エーデルガルト", 29, 13, 6, 5, 8, 5, 6, 4, 10, 86 };
@@ -57,7 +52,6 @@ void Title::update(Scene& scene)
 
 void Title::draw()
 {
-	//DrawGraph(0, 0, background_atk, FALSE);
 	character.StatusOutput(characters, "ベレス");
 	character.LevelUp(character.pin_, character.rand_, characters, "ベレス");
 	DrawFormatString(100, 100, GetColor(WHITE), "rand = %d", character.rand_);

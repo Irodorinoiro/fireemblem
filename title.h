@@ -15,7 +15,6 @@ public:
 	StatusList statuslist;
 	Character character;
 	std::vector<Character> characters;
-	int background_atk;
 
 	/// <summary>
 	/// タイトルクラスの初期化

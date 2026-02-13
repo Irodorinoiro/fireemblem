@@ -6,12 +6,14 @@
 #include "opening.h"
 #include "title.h"
 #include "mode_select.h"
+#include "attack.h"
 
 int WINAPI WinMain(HINSTANCE hinstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
 	Opening opening;
 	Title title;
 	ModeSelect mode_select;
+	Attack attack;
 	GameManager game;
 
 	SetOutApplicationLogValidFlag(FALSE);
@@ -83,6 +85,8 @@ int WINAPI WinMain(HINSTANCE hinstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			break;
 
 		case Scene::ATTACK:
+			attack.init();
+			attack.draw();
 			break;
 
 		case Scene::GAME_END:
