@@ -5,8 +5,9 @@
 class Attack
 {
 public:
-	int init();
-	int draw();
+	void init();
+	void draw();
+	void atkMotionByleth(int B0, int B1, int B2, int B3, int B4, int B5, int B6, int B7);
 	//void update(Scene& scene);
 private:
 	int background_atk;

@@ -1,5 +1,5 @@
 #include "attack.h"
-int Attack::init()
+void Attack::init()
 {
 	if (has_to_init)
 	{
@@ -13,12 +13,10 @@ int Attack::init()
 			errorBox("[title.cpp][êÌì¨îwåiì«Ç›éÊÇË]");
 		}
 	}
-	return 0;
 }
 
-int Attack::draw()
+void Attack::draw()
 {
 	DrawGraph(0, 0, background_atk, FALSE);
 	DrawGraph(800, 300, byleth0, TRUE);
-	return 0;
 }
