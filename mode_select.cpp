@@ -21,20 +21,20 @@ void ModeSelect::update(Scene& scene)
 			has_to_init = true;
 			scene = Scene::SCENE1;
 		}
-		if (m_cursor == 2)
+		if (m_cursor == 1)
 		{
 			has_to_init = true;
 			scene = Scene::EXTRA;
 		}
-		if (m_cursor == 1)
+		if (m_cursor == 2)
 		{
 			has_to_init = true;
-			scene = Scene::SCENE2;
+			scene = Scene::TITLE;
 		}
 		if (m_cursor == 3)
 		{
 			has_to_init = true;
-			scene = Scene::TITLE;
+			scene = Scene::ATTACK;
 		}
 	}
 

@@ -7,6 +7,13 @@ int Title::init()
 		has_to_init = false;
 		m_cursor = 0;
 
+		// 画像読み取り
+		background_atk = LoadGraph("background_attack.png");
+		if (background_atk == -1)
+		{
+			errorBox("[title.cpp][戦闘背景読み取り]");
+		}
+
 		StatusList Byleth_status = { "ベレス", 27, 13, 6, 9, 8, 8, 6, 6, 7, 90 };
 		StatusList Edelgard_status = { "エーデルガルト", 29, 13, 6, 5, 8, 5, 6, 4, 10, 86 };
 		StatusList Hubert_status = { "ヒューベルト", 22, 6, 12, 6, 7, 5, 4, 7, 6, 75 };
@@ -19,7 +26,6 @@ int Title::init()
 		characters.emplace_back(Edelgard_status, Edelgard_growth);
 		characters.emplace_back(Hubert_status, Hubert_growth);
 	}
-
 	return 0;
 }
 
@@ -51,14 +57,14 @@ void Title::update(Scene& scene)
 
 void Title::draw()
 {
+	//DrawGraph(0, 0, background_atk, FALSE);
 	character.StatusOutput(characters, "ベレス");
 	character.LevelUp(character.pin_, character.rand_, characters, "ベレス");
-
 	DrawFormatString(100, 100, GetColor(WHITE), "rand = %d", character.rand_);
 	DrawFormatString(100, 150, GetColor(WHITE), "pin = %d", character.pin_);
 	DrawFormatString(100, 200, GetColor(WHITE), "level = %d", characters[0].level_);
 	DrawFormatString(100, 250, GetColor(WHITE), "total = %d", characters[0].status_.total_status);
-
+	
 	SWITCH(
 		m_cursor == 0,
 		DrawFormatString(100, 500, GetColor(255, 0, 0), "START"),

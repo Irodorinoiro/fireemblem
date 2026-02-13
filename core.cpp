@@ -26,13 +26,18 @@ int gameInit()
 		errorBox("フォント読み込み時に予期せぬエラーが発生しました．");
 		return -1;
 	}
-
+	/*
 	title_illust = LoadGraph("gazo_gamedx/title_illust.png");
 	if (title_illust == -1)
 	{
-		errorBox("画像の読み込み時に予期せぬエラーが発生しました．");
+		errorBox("タイトルイラスト読み込み時に予期せぬエラーが発生しました．");
 		return -1;
 	}
-
+	*/
 	return 0;
+}
+
+void FPS(const int fps)
+{
+	WaitTimer(1000.0 / fps);
 }

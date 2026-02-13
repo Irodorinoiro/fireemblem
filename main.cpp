@@ -15,7 +15,8 @@ int WINAPI WinMain(HINSTANCE hinstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	GameManager game;
 
 	SetOutApplicationLogValidFlag(FALSE);
-
+	SetWaitVSyncFlag(TRUE);
+	
 	if (DxLib_Init() == -1)
 	{
 		errorBox("èâä˙âªéûÇ…ó\ä˙ÇπÇ ÉGÉâÅ[Ç™î≠ê∂ÇµÇ‹ÇµÇΩÅD");
@@ -32,7 +33,7 @@ int WINAPI WinMain(HINSTANCE hinstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	SetDrawScreen(DX_SCREEN_BACK);
 	SetMainWindowText(TITLE_TEXT);
 
-	Scene game_state = Scene::OPENING;
+	Scene game_state = Scene::TITLE;
 
 	if (gameInit() == -1)
 	{
@@ -43,6 +44,7 @@ int WINAPI WinMain(HINSTANCE hinstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	while (ProcessMessage() == 0)
 	{
 		checkKeyState();
+		FPS(30);
 
 		if (ClearDrawScreen() == -1)
 		{
@@ -75,17 +77,20 @@ int WINAPI WinMain(HINSTANCE hinstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			break;
 
 		case Scene::SCENE1:
-			//game_state = game.Scene1();
 			break;
 
-		case Scene::SCENE2:
-			//game_state = game.Scene2();
+		case Scene::MAP:
+			break;
+
+		case Scene::ATTACK:
 			break;
 
 		case Scene::GAME_END:
 			DxLib_End();
 			return 0;
 		}
+
+		DrawFormatString(0, 0, GetColor(WHITE), "%d", (int)GetFPS());
 
 		if (ScreenFlip() == -1)
 		{
