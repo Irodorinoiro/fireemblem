@@ -6,6 +6,7 @@ void Attack::init()
 		has_to_init = false;
 
 		moving_timer_ = 0;
+		test = 750;
 		// 画像読み取り
 		background_atk_ = LoadGraph("background_attack.png");
 		byleth0_ = LoadGraph("picture_atk_illust/byleth0.png");
@@ -36,20 +37,87 @@ void Attack::init()
 void Attack::draw()
 {
 	DrawGraph(0, 0, background_atk_, FALSE);
-	DrawGraph(300, 300, byleth0_, TRUE);
+	DrawGraph(330, 300, byleth0_, TRUE);
 	DrawFormatString(100, 0, GetColor(WHITE), "moving_timer = %d", moving_timer_);
 }
 
 void Attack::atkMotionByleth(int B0, int B1, int B2, int B3, int B4, int B5, int B6, int B7) 
 {
 	//DrawGraph(800, 300, byleth0_, TRUE);
-	if (moving_timer_ <= 120)
+	if (moving_timer_ <= BEFORE_ATTACK_FRAME)
 	{
-		DrawGraph(800, 300, byleth0_, TRUE);
+		DrawGraph(CHARACTER_POS_X, CHARACTER_POS_Y, byleth0_, TRUE);
+		//DrawBox(test, PARABOLA(test), test + 10, PARABOLA(test) + 10, GetColor(WHITE), TRUE);
+		
+	}
+	else if (moving_timer_ <= BEFORE_ATTACK_FRAME + MOTHION_FRAME)
+	{
+		DrawGraph(CHARACTER_POS_X, CHARACTER_POS_Y, byleth1_, TRUE);
+	}
+	else if (moving_timer_ <= BEFORE_ATTACK_FRAME + MOTHION_FRAME*2)
+	{
+		DrawGraph(test, PARABOLA(test), byleth2_, TRUE);
+		test -= 10;
+	}
+	//ジャンプ開始
+	else if (moving_timer_ <= BEFORE_ATTACK_FRAME + MOTHION_FRAME * 4)
+	{
+		DrawGraph(test, PARABOLA(test), byleth4_, TRUE);
+		test -= 10;
+	}
+	else if (moving_timer_ <= BEFORE_ATTACK_FRAME + MOTHION_FRAME * 6)
+	{
+		test = 650;
+		DrawGraph(test, PARABOLA(test), byleth4_, TRUE);
+		test -= 3;
+	}
+	else if (moving_timer_ <= BEFORE_ATTACK_FRAME + MOTHION_FRAME * 7)
+	{
+		DrawGraph(test, PARABOLA(test), byleth3_, TRUE);
+		test -= 2;
+	}
+	else if (moving_timer_ <= BEFORE_ATTACK_FRAME + MOTHION_FRAME * 8)
+	{
+		DrawGraph(test, PARABOLA(test), byleth5_, TRUE);
+		test -= 2;
+	}
+	else if (moving_timer_ <= BEFORE_ATTACK_FRAME + MOTHION_FRAME * 9)
+	{
+		DrawGraph(test, PARABOLA(test), byleth6_, TRUE);
+		test -= 1;
+	}
+	else if (moving_timer_ <= BEFORE_ATTACK_FRAME + MOTHION_FRAME * 100)
+	{
+		DrawGraph(test, PARABOLA(test), byleth7_, TRUE);
+	}
+#if 0
+	else if (moving_timer_ <= BEFORE_ATTACK_FRAME + MOTHION_FRAME * 12)
+	{
+		DrawGraph(test, PARABOLA(test), byleth5_, TRUE);
+	}
+	else if (moving_timer_ <= BEFORE_ATTACK_FRAME + MOTHION_FRAME * 13)
+	{
+		DrawGraph(test, PARABOLA(test), byleth6_, TRUE);
+	}
+	else if (moving_timer_ <= BEFORE_ATTACK_FRAME + MOTHION_FRAME * 100)
+	{
+		DrawGraph(test, PARABOLA(test), byleth7_, TRUE);
 	}
 	else
 	{
-		DrawGraph(800, 300, byleth5_, TRUE);
+		DrawGraph(test, PARABOLA(test), byleth7_, TRUE);
 	}
+#endif
+
+#if 0
+	if (moving_timer_ > BEFORE_ATTACK_FRWME)
+	{
+		//DrawGraph(test, PARABOLA(test), byleth0_, TRUE);
+		DrawBox(test, PARABOLA(test), test + 10, PARABOLA(test) + 10, GetColor(WHITE), TRUE);
+		test -= 3;
+	}
+#endif
+	DrawFormatString(300, 0, GetColor(WHITE), "座標; %f", test);
+	DrawFormatString(300, 50, GetColor(WHITE), "座標; %f", PARABOLA(test));
 	++moving_timer_;
 }

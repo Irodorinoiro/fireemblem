@@ -35,7 +35,7 @@ int WINAPI WinMain(HINSTANCE hinstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	SetDrawScreen(DX_SCREEN_BACK);
 	SetMainWindowText(TITLE_TEXT);
 
-	Scene game_state = Scene::TITLE;
+	Scene game_state = Scene::ATTACK;
 
 	if (gameInit() == -1)
 	{

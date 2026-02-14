@@ -5,10 +5,8 @@
 #include "DxLib.h"
 
 #define TITLE_TEXT "たいとる"
-#define WIDTH_X 1275
-#define WIDTH_Y 714
-//#define WIDTH_X_HALF 640
-//#define WIDTH_Y_HALF 360
+#define WIDTH_X 1280
+#define WIDTH_Y 720
 #define TITLEFONTSIZE 25
 #define KEY_BUF 256
 
@@ -26,11 +24,13 @@
 #define MAP_CELL_HORIZONTAL 60 / 2 // 横方向マップの大きさ (片方)
 #define MAP_CELL_VERTICAL 30 / 2 // 縦方向マップの大きさ (片方)
 
+// 戦闘調整
+#define CHARACTER_POS_X 750
+#define CHARACTER_POS_Y 300
+#define BEFORE_ATTACK_FRAME  30
+#define MOTHION_FRAME 3
+#define PARABOLA(t) (t - 615)*(t - 615)*0.01 + 100
 
-//画像調整
-#define HANA_SIZE 0.20 // hana の画像比率
-#define PLAYER_X CELL * 12	//hana の初期位置
-#define PLAYER_Y CELL * 7	//hana の初期位置
 
 #define MAX_X WIDTH_X / CELL
 
