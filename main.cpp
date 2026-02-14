@@ -87,8 +87,8 @@ int WINAPI WinMain(HINSTANCE hinstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		case Scene::ATTACK:
 			attack.init();
 			attack.draw();
+			attack.atkMotionByleth(attack.byleth0_, attack.byleth1_, attack.byleth2_, attack.byleth3_, attack.byleth4_, attack.byleth5_, attack.byleth6_, attack.byleth7_);
 			break;
-
 		case Scene::GAME_END:
 			DxLib_End();
 			return 0;
