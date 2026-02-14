@@ -8,7 +8,6 @@ public:
 	void init();
 	void draw();
 	void atkMotionByleth(int B0, int B1, int B2, int B3, int B4, int B5, int B6, int B7);
-	float test;
 
 	// background picture
 	int background_atk_;
@@ -41,5 +40,6 @@ public:
 	//void update(Scene& scene);
 private:
 	unsigned int moving_timer_;
+	float paramater_;
 };
 

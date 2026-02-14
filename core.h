@@ -9,6 +9,7 @@
 #define WIDTH_Y 720
 #define TITLEFONTSIZE 25
 #define KEY_BUF 256
+#define FPS_30 30
 
 //êF
 #define LIGHT_BLUE 0, 255, 200
@@ -29,7 +30,7 @@
 #define CHARACTER_POS_Y 300
 #define BEFORE_ATTACK_FRAME  30
 #define MOTHION_FRAME 3
-#define PARABOLA(t) (t - 615)*(t - 615)*0.01 + 100
+#define PARABOLA(t) (t - 615)*(t - 615)*0.007 + 100
 
 
 #define MAX_X WIDTH_X / CELL

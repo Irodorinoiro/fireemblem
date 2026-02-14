@@ -6,9 +6,9 @@ void Attack::init()
 		has_to_init = false;
 
 		moving_timer_ = 0;
-		test = 750;
+		paramater_ = 750;
 		// 画像読み取り
-		background_atk_ = LoadGraph("background_attack.png");
+		background_atk_ = LoadGraph("picture_atk_illust/background_attack.png");
 		byleth0_ = LoadGraph("picture_atk_illust/byleth0.png");
 		byleth1_ = LoadGraph("picture_atk_illust/byleth1.png");
 		byleth2_ = LoadGraph("picture_atk_illust/byleth2.png");
@@ -47,77 +47,59 @@ void Attack::atkMotionByleth(int B0, int B1, int B2, int B3, int B4, int B5, int
 	if (moving_timer_ <= BEFORE_ATTACK_FRAME)
 	{
 		DrawGraph(CHARACTER_POS_X, CHARACTER_POS_Y, byleth0_, TRUE);
-		//DrawBox(test, PARABOLA(test), test + 10, PARABOLA(test) + 10, GetColor(WHITE), TRUE);
 		
 	}
-	else if (moving_timer_ <= BEFORE_ATTACK_FRAME + MOTHION_FRAME)
+	else if (moving_timer_ <= BEFORE_ATTACK_FRAME + 1)
 	{
 		DrawGraph(CHARACTER_POS_X, CHARACTER_POS_Y, byleth1_, TRUE);
 	}
-	else if (moving_timer_ <= BEFORE_ATTACK_FRAME + MOTHION_FRAME*2)
+	else if (moving_timer_ <= BEFORE_ATTACK_FRAME + 2)
 	{
-		DrawGraph(test, PARABOLA(test), byleth2_, TRUE);
-		test -= 10;
+		DrawGraph(paramater_, PARABOLA(paramater_), byleth2_, TRUE);
+		paramater_ -= 10;
 	}
 	//ジャンプ開始
-	else if (moving_timer_ <= BEFORE_ATTACK_FRAME + MOTHION_FRAME * 4)
+	else if (moving_timer_ <= BEFORE_ATTACK_FRAME + 4)
 	{
-		DrawGraph(test, PARABOLA(test), byleth4_, TRUE);
-		test -= 10;
+		DrawGraph(paramater_, PARABOLA(paramater_), byleth4_, TRUE);
+		paramater_ -= 10;
 	}
-	else if (moving_timer_ <= BEFORE_ATTACK_FRAME + MOTHION_FRAME * 6)
+	else if (moving_timer_ == BEFORE_ATTACK_FRAME + 5)
 	{
-		test = 650;
-		DrawGraph(test, PARABOLA(test), byleth4_, TRUE);
-		test -= 3;
+		paramater_ = 620;
+		DrawGraph(paramater_, PARABOLA(paramater_), byleth4_, TRUE);
+		paramater_ -= 10;
 	}
-	else if (moving_timer_ <= BEFORE_ATTACK_FRAME + MOTHION_FRAME * 7)
+	else if (moving_timer_ <= BEFORE_ATTACK_FRAME + 9)
 	{
-		DrawGraph(test, PARABOLA(test), byleth3_, TRUE);
-		test -= 2;
+		DrawGraph(paramater_, PARABOLA(paramater_), byleth4_, TRUE);
+		paramater_ -= 8;
 	}
-	else if (moving_timer_ <= BEFORE_ATTACK_FRAME + MOTHION_FRAME * 8)
+	else if (moving_timer_ == BEFORE_ATTACK_FRAME + 10)
 	{
-		DrawGraph(test, PARABOLA(test), byleth5_, TRUE);
-		test -= 2;
+		DrawGraph(paramater_, PARABOLA(paramater_), byleth3_, TRUE);
+		paramater_ -= 8;
+		WaitTimer(1000 / FPS_30);
 	}
-	else if (moving_timer_ <= BEFORE_ATTACK_FRAME + MOTHION_FRAME * 9)
+	else if (moving_timer_ == BEFORE_ATTACK_FRAME + 11)
 	{
-		DrawGraph(test, PARABOLA(test), byleth6_, TRUE);
-		test -= 1;
+		paramater_ = 435;
+		DrawGraph(paramater_, PARABOLA(paramater_), byleth5_, TRUE);
+		WaitTimer(1000 / FPS_30);
 	}
-	else if (moving_timer_ <= BEFORE_ATTACK_FRAME + MOTHION_FRAME * 100)
+	else if (moving_timer_ <= BEFORE_ATTACK_FRAME + 12)
 	{
-		DrawGraph(test, PARABOLA(test), byleth7_, TRUE);
+		DrawGraph(paramater_, PARABOLA(paramater_), byleth6_, TRUE);
+		paramater_ -= 2;
+		WaitTimer(1000 / FPS_30);
 	}
-#if 0
-	else if (moving_timer_ <= BEFORE_ATTACK_FRAME + MOTHION_FRAME * 12)
+	else if (moving_timer_ <= BEFORE_ATTACK_FRAME + 100)
 	{
-		DrawGraph(test, PARABOLA(test), byleth5_, TRUE);
+		DrawGraph(paramater_, PARABOLA(paramater_), byleth7_, TRUE);
+		WaitTimer(1000 / FPS_30);
 	}
-	else if (moving_timer_ <= BEFORE_ATTACK_FRAME + MOTHION_FRAME * 13)
-	{
-		DrawGraph(test, PARABOLA(test), byleth6_, TRUE);
-	}
-	else if (moving_timer_ <= BEFORE_ATTACK_FRAME + MOTHION_FRAME * 100)
-	{
-		DrawGraph(test, PARABOLA(test), byleth7_, TRUE);
-	}
-	else
-	{
-		DrawGraph(test, PARABOLA(test), byleth7_, TRUE);
-	}
-#endif
-
-#if 0
-	if (moving_timer_ > BEFORE_ATTACK_FRWME)
-	{
-		//DrawGraph(test, PARABOLA(test), byleth0_, TRUE);
-		DrawBox(test, PARABOLA(test), test + 10, PARABOLA(test) + 10, GetColor(WHITE), TRUE);
-		test -= 3;
-	}
-#endif
-	DrawFormatString(300, 0, GetColor(WHITE), "座標; %f", test);
-	DrawFormatString(300, 50, GetColor(WHITE), "座標; %f", PARABOLA(test));
+	DrawFormatString(300, 0, GetColor(WHITE), "座標; %f", paramater_);
+	DrawFormatString(300, 50, GetColor(WHITE), "座標; %f", PARABOLA(paramater_));
 	++moving_timer_;
+	//WaitTimer(1000);
 }

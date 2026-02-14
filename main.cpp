@@ -46,7 +46,7 @@ int WINAPI WinMain(HINSTANCE hinstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	while (ProcessMessage() == 0)
 	{
 		checkKeyState();
-		FPS(30);
+		FPS(FPS_30);
 
 		if (ClearDrawScreen() == -1)
 		{
