@@ -26,11 +26,15 @@
 #define MAP_CELL_VERTICAL 30 / 2 // ècï˚å¸É}ÉbÉvÇÃëÂÇ´Ç≥ (ï–ï˚)
 
 // êÌì¨í≤êÆ
-#define CHARACTER_POS_X 750
-#define CHARACTER_POS_Y 300
-#define BEFORE_ATTACK_FRAME  30
+#define BYLETH_POS_X 750
+#define BYLETH_POS_Y 300
+#define EDELGARD_POS_X 690
+#define EDELGARD_POS_Y 230
+#define BEFORE_ATTACK_FRAME  2//30
 #define MOTHION_FRAME 3
-#define PARABOLA(t) (t - 615)*(t - 615)*0.007 + 100
+#define PARABOLA_BYLETH(t) (t - 615)*(t - 615)*0.007 + 100
+#define PARABOLA_EDELGARD(t) (t - 500)*(t - 555)*0.007 + 30
+#define AFTER_ATTACK_FRAME  BEFORE_ATTACK_FRAME + 20
 
 
 #define MAX_X WIDTH_X / CELL
