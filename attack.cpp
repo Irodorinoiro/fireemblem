@@ -10,30 +10,30 @@ void Attack::init()
 		paramater_byleth_ = BYLETH_POS_X;
 		paramater_edelgard_ = EDELGARD_POS_X;
 		// âÊëúì«Ç›éÊÇË
-		background_atk_ = LoadGraph("picture_atk_illust/background_attack.png");
-		byleth0_ = LoadGraph("picture_atk_illust/byleth0.png");
-		byleth1_ = LoadGraph("picture_atk_illust/byleth1.png");
-		byleth2_ = LoadGraph("picture_atk_illust/byleth2.png");
-		byleth3_ = LoadGraph("picture_atk_illust/byleth3.png");
-		byleth4_ = LoadGraph("picture_atk_illust/byleth4.png");
-		byleth5_ = LoadGraph("picture_atk_illust/byleth5.png");
-		byleth6_ = LoadGraph("picture_atk_illust/byleth6.png");
-		byleth7_ = LoadGraph("picture_atk_illust/byleth7.png");
-		edelgard0_ = LoadGraph("picture_atk_illust/edelgard0.png");
-		edelgard1_ = LoadGraph("picture_atk_illust/edelgard1.png");
-		edelgard2_ = LoadGraph("picture_atk_illust/edelgard2.png");
-		edelgard3_ = LoadGraph("picture_atk_illust/edelgard3.png");
-		edelgard4_ = LoadGraph("picture_atk_illust/edelgard4.png");
-		edelgard5_ = LoadGraph("picture_atk_illust/edelgard5.png");
-		edelgard6_ = LoadGraph("picture_atk_illust/edelgard6.png");
-		edelgard7_ = LoadGraph("picture_atk_illust/edelgard7.png");
+		background_atk = LoadGraph("picture_atk_illust/background_attack.png");
+		byleth0 = LoadGraph("picture_atk_illust/byleth0.png");
+		byleth1 = LoadGraph("picture_atk_illust/byleth1.png");
+		byleth2 = LoadGraph("picture_atk_illust/byleth2.png");
+		byleth3 = LoadGraph("picture_atk_illust/byleth3.png");
+		byleth4 = LoadGraph("picture_atk_illust/byleth4.png");
+		byleth5 = LoadGraph("picture_atk_illust/byleth5.png");
+		byleth6 = LoadGraph("picture_atk_illust/byleth6.png");
+		byleth7 = LoadGraph("picture_atk_illust/byleth7.png");
+		edelgard0 = LoadGraph("picture_atk_illust/edelgard0.png");
+		edelgard1 = LoadGraph("picture_atk_illust/edelgard1.png");
+		edelgard2 = LoadGraph("picture_atk_illust/edelgard2.png");
+		edelgard3 = LoadGraph("picture_atk_illust/edelgard3.png");
+		edelgard4 = LoadGraph("picture_atk_illust/edelgard4.png");
+		edelgard5 = LoadGraph("picture_atk_illust/edelgard5.png");
+		edelgard6 = LoadGraph("picture_atk_illust/edelgard6.png");
+		edelgard7 = LoadGraph("picture_atk_illust/edelgard7.png");
 
-		if (background_atk_ == -1)
+		if (background_atk == -1)
 		{
 			errorBox("[title.cpp][êÌì¨îwåiì«Ç›éÊÇË]");
 			MessageBox(NULL, "âÊëúì«Ç›çûÇ›é∏îs", "Error", MB_OK);
 		}
-		if (byleth0_ == -1 || byleth1_ == -1 || byleth2_ == -1 || byleth3_ == -1 || byleth4_ == -1 || byleth5_ == -1 || byleth6_ == -1 || byleth7_ == -1)
+		if (byleth0 == -1 || byleth1 == -1 || byleth2 == -1 || byleth3 == -1 || byleth4 == -1 || byleth5 == -1 || byleth6 == -1 || byleth7 == -1)
 		{
 			printf("[title.cpp][byleth piictureì«Ç›éÊÇË]");
 			MessageBox(NULL, "âÊëúì«Ç›çûÇ›é∏îs", "Error", MB_OK);
@@ -47,8 +47,8 @@ void Attack::init()
 
 void Attack::draw()
 {
-	DrawGraph(0, 0, background_atk_, FALSE);
-	DrawGraph(330, 300, byleth0_, TRUE);
+	DrawGraph(0, 0, background_atk, FALSE);
+	DrawGraph(330, 300, byleth0, TRUE);
 	//DrawGraph(BYLETH_POS_X, EDELGARD_POS_Y, byleth0_, TRUE);
 	//DrawGraph(EDELGARD_POS_X, EDELGARD_POS_Y, edelgard0_, TRUE);
 	DrawFormatString(100, 0, GetColor(WHITE), "moving_timer = %d", moving_timer_);

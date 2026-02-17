@@ -4,7 +4,7 @@
 
 #include "core.h"
 
-#define NUM_MODE_SELECT_BUTTON 10
+#define NUM_MODE_SELECT_BUTTON 4
 
 class ModeSelect
 {

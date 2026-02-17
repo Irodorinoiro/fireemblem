@@ -11,33 +11,25 @@ public:
 	void atkMotionEdelgard(int char0, int char1, int char2, int char3, int char4, int char5, int char6, int char7);
 
 	// background picture
-	int background_atk_;
+	int background_atk;
 
 	// attack motion picture
-	int byleth0_;
-	int byleth1_;
-	int byleth2_;
-	int byleth3_;
-	int byleth4_;
-	int byleth5_;
-	int byleth6_;
-	int byleth7_;
-	int edelgard0_;
-	int edelgard1_;
-	int edelgard2_;
-	int edelgard3_;
-	int edelgard4_;
-	int edelgard5_;
-	int edelgard6_;
-	int edelgard7_;
-	int hubert0_;
-	int hubert1_;
-	int hubert2_;
-	int hubert3_;
-	int hubert4_;
-	int hubert5_;
-	int hubert6_;
-	int hubert7_;
+	int byleth0;
+	int byleth1;
+	int byleth2;
+	int byleth3;
+	int byleth4;
+	int byleth5;
+	int byleth6;
+	int byleth7;
+	int edelgard0;
+	int edelgard1;
+	int edelgard2;
+	int edelgard3;
+	int edelgard4;
+	int edelgard5;
+	int edelgard6;
+	int edelgard7;
 	//void update(Scene& scene);
 private:
 	unsigned int moving_timer_;

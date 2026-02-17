@@ -145,6 +145,7 @@
     <ClInclude Include="core.h" />
     <ClInclude Include="game_manager.h" />
     <ClInclude Include="key.h" />
+    <ClInclude Include="loading.h" />
     <ClInclude Include="mode_select.h" />
     <ClInclude Include="opening.h" />
     <ClInclude Include="title.h" />
@@ -156,6 +157,7 @@
     <ClCompile Include="core.cpp" />
     <ClCompile Include="game_manager.cpp" />
     <ClCompile Include="key.cpp" />
+    <ClCompile Include="loading.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mode_select.cpp" />
     <ClCompile Include="opening.cpp" />
