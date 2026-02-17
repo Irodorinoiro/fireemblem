@@ -6,16 +6,19 @@
 #include "opening.h"
 #include "title.h"
 #include "mode_select.h"
+#include "attack.h"
 
 int WINAPI WinMain(HINSTANCE hinstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
 	Opening opening;
 	Title title;
 	ModeSelect mode_select;
+	Attack attack;
 	GameManager game;
 
 	SetOutApplicationLogValidFlag(FALSE);
-
+	SetWaitVSyncFlag(TRUE);
+	
 	if (DxLib_Init() == -1)
 	{
 		errorBox("èâä˙âªéûÇ…ó\ä˙ÇπÇ ÉGÉâÅ[Ç™î≠ê∂ÇµÇ‹ÇµÇΩÅD");
@@ -32,7 +35,7 @@ int WINAPI WinMain(HINSTANCE hinstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	SetDrawScreen(DX_SCREEN_BACK);
 	SetMainWindowText(TITLE_TEXT);
 
-	Scene game_state = Scene::OPENING;
+	Scene game_state = Scene::TITLE;
 
 	if (gameInit() == -1)
 	{
@@ -43,6 +46,7 @@ int WINAPI WinMain(HINSTANCE hinstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	while (ProcessMessage() == 0)
 	{
 		checkKeyState();
+		FPS(FPS_30);
 
 		if (ClearDrawScreen() == -1)
 		{
@@ -75,17 +79,23 @@ int WINAPI WinMain(HINSTANCE hinstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			break;
 
 		case Scene::SCENE1:
-			//game_state = game.Scene1();
 			break;
 
-		case Scene::SCENE2:
-			//game_state = game.Scene2();
+		case Scene::MAP:
 			break;
 
+		case Scene::ATTACK:
+			attack.init();
+			attack.draw();
+			//attack.atkMotionByleth(attack.byleth0_, attack.byleth1_, attack.byleth2_, attack.byleth3_, attack.byleth4_, attack.byleth5_, attack.byleth6_, attack.byleth7_);
+			attack.atkMotionEdelgard(attack.edelgard0, attack.edelgard1, attack.edelgard2, attack.edelgard3, attack.edelgard4, attack.edelgard5, attack.edelgard6, attack.edelgard7);
+			break;
 		case Scene::GAME_END:
 			DxLib_End();
 			return 0;
 		}
+
+		DrawFormatString(0, 0, GetColor(WHITE), "%d", (int)GetFPS());
 
 		if (ScreenFlip() == -1)
 		{

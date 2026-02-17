@@ -21,20 +21,20 @@ void ModeSelect::update(Scene& scene)
 			has_to_init = true;
 			scene = Scene::SCENE1;
 		}
-		if (m_cursor == 2)
-		{
-			has_to_init = true;
-			scene = Scene::EXTRA;
-		}
 		if (m_cursor == 1)
 		{
 			has_to_init = true;
-			scene = Scene::SCENE2;
+			scene = Scene::ATTACK;
+		}
+		if (m_cursor == 2)
+		{
+			has_to_init = true;
+			scene = Scene::TITLE;
 		}
 		if (m_cursor == 3)
 		{
 			has_to_init = true;
-			scene = Scene::TITLE;
+			scene = Scene::ATTACK;
 		}
 	}
 
@@ -57,8 +57,8 @@ void ModeSelect::draw()
 	);
 	SWITCH(
 		m_cursor == 1,
-		DrawFormatString(100, 500, GetColor(255, 0, 0), "ボツ2"),
-		DrawFormatString(100, 500, GetColor(WHITE), "ボツ2")
+		DrawFormatString(100, 500, GetColor(255, 0, 0), "アタック"),
+		DrawFormatString(100, 500, GetColor(WHITE), "アタック")
 	);
 	SWITCH(
 		m_cursor == 2,

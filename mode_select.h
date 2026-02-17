@@ -10,7 +10,7 @@ class ModeSelect
 {
 private:
 	int m_title_illust;
-	int m_cursor = 0;
+	int m_cursor = 3;
 
 public:
 	int init();

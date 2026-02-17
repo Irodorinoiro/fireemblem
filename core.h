@@ -5,12 +5,11 @@
 #include "DxLib.h"
 
 #define TITLE_TEXT "たいとる"
-#define WIDTH_X 1275
-#define WIDTH_Y 714
-//#define WIDTH_X_HALF 640
-//#define WIDTH_Y_HALF 360
+#define WIDTH_X 1280
+#define WIDTH_Y 720
 #define TITLEFONTSIZE 25
 #define KEY_BUF 256
+#define FPS_30 30
 
 //色
 #define LIGHT_BLUE 0, 255, 200
@@ -26,11 +25,17 @@
 #define MAP_CELL_HORIZONTAL 60 / 2 // 横方向マップの大きさ (片方)
 #define MAP_CELL_VERTICAL 30 / 2 // 縦方向マップの大きさ (片方)
 
+// 戦闘調整
+#define BYLETH_POS_X 750
+#define BYLETH_POS_Y 300
+#define EDELGARD_POS_X 690
+#define EDELGARD_POS_Y 230
+#define BEFORE_ATTACK_FRAME  2//30
+#define MOTHION_FRAME 3
+#define PARABOLA_BYLETH(t) (t - 615)*(t - 615)*0.007 + 100
+#define PARABOLA_EDELGARD(t) (t - 500)*(t - 555)*0.007 + 30
+#define AFTER_ATTACK_FRAME  BEFORE_ATTACK_FRAME + 20
 
-//画像調整
-#define HANA_SIZE 0.20 // hana の画像比率
-#define PLAYER_X CELL * 12	//hana の初期位置
-#define PLAYER_Y CELL * 7	//hana の初期位置
 
 #define MAX_X WIDTH_X / CELL
 
@@ -39,7 +44,15 @@
 
 #define CONFIRM z_is_pressed || enter_is_pressed
 
-#define SWITCH(c, a, b) c ? a : b
+#define SWITCH(c, a, b) if(c)\
+{\
+a;\
+}\
+else\
+{\
+b;\
+}\
+
 
 /// <summary>
 /// ゲームのシーンに関するenum
@@ -53,7 +66,8 @@ enum Scene
 	QUIT,
 	EXTRA,
 	SCENE1,
-	SCENE2
+	MAP,
+	ATTACK
 };
 
 extern bool has_to_init; // 各シーンにおいて初期化する必要があるかどうか
@@ -66,4 +80,14 @@ extern int title_illust;
 /// <param name="str">エラーメッセージ</param>
 void errorBox(const std::string str);
 
+/// <summary>
+/// FPSを制御する関数
+/// </summary>
+/// <param name="fps">FPS</param>
+void FPS(const int fps);
+
+/// <summary>
+/// ゲーム全体で使う変数等の初期化
+/// </summary>
+/// <returns></returns>
 int gameInit();

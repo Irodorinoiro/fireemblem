@@ -39,6 +39,12 @@
     <ClInclude Include="mode_select.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="attack.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="loading.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="core.cpp">
@@ -66,6 +72,12 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="mode_select.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="attack.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="loading.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>

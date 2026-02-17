@@ -1,7 +1,7 @@
+#if 0
 #include "game_manager.h"
 #include <vector>
 
-#if 0
 int GameManager::Title()
 {
 	
@@ -17,37 +17,25 @@ int GameManager::Title()
 
 	Button start_button;				// スタートボタン
 	Button quit_button;				// 終了ボタン
-	//Background back_ground;			// 背景
-	Keyboard key_board;
-	//CharaMove chara_move;
 	Character character;
 	Button button;
 	StatusList statuslist;
+	//Title title;
 
 
 
 	int num_index = 2;				// 項目数
 	int cursor = 0;					// 現在のカーソル位置
 
-	key_board.SetIndexNum(num_index);
-
-	start_button.SetButtonNumber(num_index);
-	quit_button.SetButtonNumber(num_index);
-
-	//start_button.LoadArrowImage("gazo_gamedx/Yajirushi.png");
-	//quit_button.LoadArrowImage("gazo_gamedx/Yajirushi.png");
-
-	//const int title = LoadGraph("gazo_gamedx/title.png");
-	//const int title_illust = LoadGraph("gazo_gamedx/title_illust.png");
-
-	start_button.SetOrder(0);
-	quit_button.SetOrder(1);
 	int x = 0, flag = 0; // title_illustの座標
-	int GHandle = LoadGraph("byleth.png");
+	//int background_atk = LoadGraph("background_attack.png");
 
-
-	while (ScreenFlip() == 0 && ProcessMessage() == 0 && ClearDrawScreen() == 0)
+	while (ProcessMessage() == 0)
 	{
+		ClearDrawScreen();
+		//DrawGraph(100, 100, background_atk, TRUE);
+		DrawFormatString(0, 0, GetColor(255, 255, 255), "Title_scene");
+		/*
 		character.StatusOutput(characters, "ベレス");
 		character.LevelUp(character.pin_, character.rand_, characters, "ベレス", button);
 
@@ -55,10 +43,11 @@ int GameManager::Title()
 		DrawFormatString(100, 150, GetColor(WHITE), "pin = %d", character.pin_);
 		DrawFormatString(100, 200, GetColor(WHITE), "level = %d", characters[0].level_);
 		DrawFormatString(100, 250, GetColor(WHITE), "total = %d", characters[0].status_.total_status);
+		*/
 
-		DrawGraph(500, 100, GHandle, FALSE);
+		//title.draw();
 
-		key_board.GetKeyState();
+		//key_board.GetKeyState();
 
 		//back_ground.Title();
 
@@ -73,39 +62,7 @@ int GameManager::Title()
 			return MODE_SELECT;
 		}
 
-		key_board.MoveCursor(cursor);
-
-		//DrawGraph(50, 100, title, TRUE);	//title 描画
-
-		start_button.SetCursor(cursor);
-		start_button.Text("START", TITLEFONTSIZE);
-		start_button.Draw(100, 500);
-
-		// 終了ボタンの描画
-		quit_button.SetCursor(cursor);
-		quit_button.Text("END", TITLEFONTSIZE);
-		quit_button.Draw(100, 550);
-		quit_button.DrawArrow();
-
-		if (start_button.IsPushed())
-		{
-			flag = 1;
-		}
-
-		if (quit_button.IsPushed())
-		{
-			return GAME_END;
-		}
-
-		++time_count;
-		if (time_count >= 3600) //一分放置するとOPに飛ぶ
-		{
-			return __OPENING__;
-		}
-
-		key_board.SaveKeyState();
-
-		FPS(60);
+		ScreenFlip();
 	}
 	return 0;
 }
@@ -150,7 +107,7 @@ int GameManager::ModeSelect()
 
 		// はじめから
 		start_button.SetCursor(cursor);
-		start_button.Text("ボツになったステージ", TITLEFONTSIZE);
+		start_button.Text("アタック", TITLEFONTSIZE);
 		start_button.Draw(100, 450);
 
 		// つづきから
@@ -170,7 +127,7 @@ int GameManager::ModeSelect()
 
 		if (start_button.IsPushed())
 		{
-			return SCENE1;
+			return ATTACK;
 		}
 
 		if (extra_button.IsPushed())
@@ -322,20 +279,6 @@ int GameManager::Scene1()
 	{
 		key_board.GetKeyState();
 
-		// 背景描画
-		/*
-		back_ground.back_1F(haikei_1F); // 床
-		back_ground.putTile_no_hit_judge(CELL * 10, CELL * (-4), escalator1);
-		back_ground.putTile_no_hit_judge(CELL * 11, CELL * (-4), escalator2);
-		back_ground.putTile_no_hit_judge(CELL * 15, CELL * 5, wood);
-		back_ground.wall_draw(kabe);
-		back_ground.putTile_no_hit_judge(CELL * 15, CELL * (-12), window);
-		back_ground.putTile_no_hit_judge(CELL * 17, CELL * (-12), window);
-		back_ground.putTile_no_hit_judge(CELL * 17, CELL * (-6), table_circle);
-		back_ground.putTile_no_hit_judge(CELL * 17, CELL * 17, table_front);
-
-		//back_ground.putTile_no_hit_judge(CELL * 11, CELL * ( - 4), escalator2);*/
-
 		// hana 歩き
 		//chara_move.Move(hana_1, hana_2, hana_3, hana_4, hana_5, hana_6, hana_7, hana_8, hana_9);
 
@@ -360,9 +303,6 @@ int GameManager::Scene1()
 		{
 			return SCENE2;
 		}
-
-		//DrawFormatString(0, 150, GetColor(255, 255, 255), "item_y: %d", back_ground.test_x);
-		//DrawFormatString(0, 200, GetColor(255, 255, 255), "test_y: %d", back_ground.test_y);
 
 		FPS(60);
 		key_board.SaveKeyState();
@@ -451,6 +391,25 @@ int GameManager::Scene2()
 		//DrawFormatString(0, 200, GetColor(255, 255, 255), "raw_y: %d", chara_move.raw_moved_y);
 
 		///DrawFormatString(0, 250, GetColor(255, 255, 255), "player_speed: %d", chara_move.player_speed);
+
+		FPS(60);
+		key_board.SaveKeyState();
+	}
+	return 0;
+}
+
+int GameManager::Attack()
+{
+	const int background_atk = LoadGraph("background_attack.png");
+	while (ScreenFlip() == 0 && ProcessMessage() == 0 && ClearDrawScreen() == 0)
+	{
+		DrawGraph(0, 0, background_atk, TRUE);
+		DrawFormatString(0, 0, GetColor(255, 255, 255), "Attack Scene");
+
+		if (CheckHitKey(KEY_INPUT_A))
+		{
+			return SCENE2;
+		}
 
 		FPS(60);
 		key_board.SaveKeyState();

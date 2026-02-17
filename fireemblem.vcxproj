@@ -82,7 +82,7 @@
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateDebugInformation>DebugFastLink</GenerateDebugInformation>
       <AdditionalLibraryDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -116,7 +116,7 @@
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateDebugInformation>DebugFastLink</GenerateDebugInformation>
       <AdditionalLibraryDirectories>C:\DxLib_VC\プロジェクトに追加すべきファイル_VC用;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -139,21 +139,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="attack.h" />
     <ClInclude Include="button.h" />
     <ClInclude Include="character_level.h" />
     <ClInclude Include="core.h" />
     <ClInclude Include="game_manager.h" />
     <ClInclude Include="key.h" />
+    <ClInclude Include="loading.h" />
     <ClInclude Include="mode_select.h" />
     <ClInclude Include="opening.h" />
     <ClInclude Include="title.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="attack.cpp" />
     <ClCompile Include="button.cpp" />
     <ClCompile Include="character_level.cpp" />
     <ClCompile Include="core.cpp" />
     <ClCompile Include="game_manager.cpp" />
     <ClCompile Include="key.cpp" />
+    <ClCompile Include="loading.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mode_select.cpp" />
     <ClCompile Include="opening.cpp" />
